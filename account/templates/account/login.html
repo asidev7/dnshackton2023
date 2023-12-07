@@ -1,0 +1,65 @@
+{% extends 'main/base.html' %}
+
+
+{% load static %}
+{% block content %}
+
+<div>
+    <!-- Heading Starts Here -->
+    <div class="page-heading header-text">
+        <div class="container">
+            <div class="row">
+                <div class="col-md-12">
+                    <h1>Contact </h1>
+                    <p><a href="/">Accueil</a> / <span>login</span></p>
+                </div>
+            </div>
+        </div>
+    </div>
+
+
+        <!-- breadcrumb end -->
+
+        <!-- Votre code HTML avec des classes Bootstrap -->
+<main id="MainContent" class="content-for-layout">
+    <div class="login-page mt-100">
+        <div class="container">
+            <form action="" method="post" class="login-form common-form mx-auto">
+
+                {% csrf_token %}
+                <div class="section-header mb-3">
+                    <h2 class="section-heading text-center">Connexion</h2>
+                </div>
+                <div class="row">
+                    {% if messages %}
+
+                    {% for message in messages %}
+                    <div {% if message.tags %} class="alert alert-danger" {% endif %} role="alert">
+                        {{ message }}
+                    </div>
+                    {% endfor %}
+                    {% endif %}
+                    <div class="col-12">
+                        <div class="form-group">
+                            <label class="label">Nom d'utilisateur</label>
+                            <input type="text" name="username" class="form-control" placeholder="Entrez votre nom d'utilisateur" />
+                        </div>
+                    </div>
+                    <div class="col-12">
+                        <div class="form-group">
+                            <label class="label">Mot de passe</label>
+                            <input type="password" name="password" class="form-control" placeholder="Entrez votre mot de passe" />
+                        </div>
+                    </div>
+                    <div class="col-12 mt-3">
+                        <a href="#" class="text_14 d-block">Mot de passe oublié?</a>
+                        <button type="submit" class="btn btn-primary d-block mt-4 btn-signin">CONNEXION</button>
+                        <br><a href="/register" class="btn btn-secondary mt-2 btn-signin">CRÉER UN COMPTE</a>
+                    </div>
+                </div>
+            </form>
+        </div>
+    </div>
+</main>
+
+{% endblock %}

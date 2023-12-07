@@ -1,0 +1,81 @@
+{% extends 'main/base.html' %}
+
+
+{% load static %}
+{% block content %}
+
+   <div class="page-heading header-text">
+        <div class="container">
+            <div class="row">
+                <div class="col-md-12">
+                    <h1>Contact </h1>
+                    <p><a href="">Accueil</a> / <span>Contact</span></p>
+                </div>
+            </div>
+        </div>
+    </div>
+
+
+        <main id="MainContent" class="content-for-layout">
+            <div class="login-page mt-100">
+                <div class="container">
+                    <form action="" method="post" class="login-form common-form mx-auto">
+                        {% csrf_token %}
+                        <div class="section-header mb-3">
+                            <h2 class="section-heading text-center">S'inscrire</h2>
+                        </div>
+                        <div class="row">
+
+                            <div class="col-12 hidden">
+                                <fieldset>
+                                    <label class="label">Je suis : </label>
+                                    {{ form.role }}
+                                </fieldset>
+                            </div>
+                            <div class="col-12">
+                                <fieldset>
+                                    <label class="label">Nom d'utilisateur</label>
+                                    {{ form.username }}
+                                    
+                                </fieldset>
+                            </div>
+                            
+                            <div class="col-12">
+                                <fieldset>
+                                    <label class="label">Email </label>
+                                    {{ form.email }}
+
+                                </fieldset>
+                            </div>
+                            <div class="col-12">
+                                <fieldset>
+                                    <label class="label">Pays de residence </label>
+                                    {{ form.country }}
+
+                                </fieldset>
+                            </div>
+                            <div class="col-12">
+                                <fieldset>
+                                    <label class="label">Mot de passe</label>
+                                    {{ form.password1 }}
+
+                                </fieldset>
+                            </div>
+                            <div class="col-12">
+                                <fieldset>
+                                    <label class="label">Confirmation </label>
+                                    {{ form.password2 }}
+
+                                </fieldset>
+                            </div>
+                            <div class="col-12 mt-3">
+                                <button type="submit" class="btn-primary d-block mt-3 btn-signin">CREER UN COMPTE</button>
+                            </div>
+                        </div>
+                    </form>
+                </div>
+            </div>            
+        </main>
+        
+<br><br><br><br><br>
+{% endblock %}

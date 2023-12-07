@@ -1,0 +1,50 @@
+{% extends 'main/base.html' %}
+
+{% block content %}
+
+  <!-- Heading Starts Here -->
+  <div class="page-heading header-text">
+    <div class="container">
+      <div class="row">
+        <div class="col-md-12">
+          <h1>Service</h1>
+          <p><a href="">Accueil</a> / <span>Detail de domaine</span></p>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <div class="container mt-5 py-5">
+    <h4>Detail de domaine</h4>
+    <table class="table">
+      <thead>
+        <tr>
+          <th scope="col">Nom de Domaine</th>
+          <th scope="col">Date de creation</th>
+          <th scope="col">Date d'exp.</th>
+          <th scope="col">Name Server</th>
+          <th scope="col">Status</th>
+          <th scope="col">DS record</th>
+        </tr>
+      </thead>
+      <tbody>
+        <!-- Exemples de données -->
+        <tr>
+          <td>{{ domain.nom_domaine }}</td>
+          <td>{{ domain.date_creation }}</td>
+          <td>{{ domain.date_expiration }}</td>
+          <td>
+            <ul>
+              {% for nameserver in domain.nameservers.all %}
+                <li>{{ nameserver.name }}</li>
+              {% endfor %}
+            </ul>
+          </td>
+          <td class="{% if domain.status == 'active' %}text-success{% elif domain.status == 'en_attente' %}text-info{% else %}text-danger{% endif %}">{{ domain.status }}</td>
+          <td>{{ domain.ds_record }}</td>
+        </tr>
+      </tbody>
+    </table>
+  </div>
+
+{% endblock %}

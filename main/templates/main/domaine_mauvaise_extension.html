@@ -1,0 +1,71 @@
+{% extends 'main/base.html' %}
+
+{% block content %}
+
+<!-- Page Content -->
+    <!-- Banner Starts Here -->
+    <div class="banner">
+        <div class="container">
+            <div class="row">
+                <div class="col-md-8 offset-md-2">
+                    <div class="header-text caption">
+                        <h2>Cherche vos nom de domaine</h2>
+                        <div id="search-section">
+                            <form id="suggestion_form" name="gs" method="post" action="">
+                                <div class="searchText">
+                                 {% csrf_token %}
+                                    <input id="q" type="text" name="nom_domaine" class="searchText" placeholder="Entrez le nom de domaine..." autocomplete="on">
+
+                                </div>
+                                <input type="submit" class="main-button" value="Chercher le nom de domaine">
+                            </form>
+                            <p class=
+                            
+
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+    <!-- Banner Ends Here -->
+
+{% if nom_domain %}
+
+{{nom_domain}}
+{% endif %}
+<pre>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+</pre>
+
+{% endblock %}
+

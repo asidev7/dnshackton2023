@@ -1,0 +1,48 @@
+{% extends 'main/base.html' %}
+
+{% block content %}
+
+  <!-- Heading Starts Here -->
+    <div class="page-heading header-text">
+        <div class="container">
+            <div class="row">
+                <div class="col-md-12">
+                    <h1>Service</h1>
+                    <p><a href="">Accueil</a> / <span>Listes de domaines</span></p>
+                </div>
+            </div>
+        </div>
+    </div>
+
+<div class="container mt-5 py-5">
+    <h2>Liste des Domaines</h2>
+    <table class="table">
+        <thead>
+            <tr>
+                <th scope="col">Nom de Domaine</th>
+                <th scope="col">Date d'expiration</th>
+                <th scope="col">Status</th>
+                <th scope="col">Action</th>
+            </tr>
+        </thead>
+        <tbody>
+            <!-- Exemples de données -->
+
+            {% for domain in domaines %}
+            <tr>
+                <td>{{domain.nom_domaine}}</td>
+                <td> {{domain.date_expiration}}</td>
+                <td class="{% if domain.status == 'active' %}text-success {% elif domain.status == 'en_attente' %} text-info {% else %} text-danger {% endif %}"> {{domain.status}}</td>
+                <td><a class="btn btn-primary" href="{% url 'detail_domain' domain.id %}" > Detail</a></td>
+            </tr>
+            {% endfor %}
+
+
+        </tbody>
+    </table>
+</div>
+
+
+
+{% endblock %}
+

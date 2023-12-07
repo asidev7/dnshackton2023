@@ -1,0 +1,84 @@
+{% extends 'main/base.html' %}
+
+{% block content %}
+
+<!-- Page Content -->
+    <!-- Banner Starts Here -->
+    <div class="banner">
+        <div class="container">
+            <div class="row">
+                <div class="col-md-8 offset-md-2">
+                    <div class="header-text caption">
+                        <h2>Réserver, enregistrer un nom de domaine :
+
+                        </h2>
+                        <div id="search-section">
+                
+                            
+                                        <form  method="post" action="">
+                                            {% csrf_token %}
+                                            <div class="form-group">
+                                                {{ form.nom_domaine }}
+                                            </div>
+                                            <button type="submit" class="btn btn-primary">Chercher le nom de domaine</button>
+                                        </form>
+                                    </div>
+                                </div>
+                            </div>
+                            
+                        </div>
+                    </div>
+                    
+    <br>
+                        
+                    </li>
+                   <div class="text-center bg-light p-4"> {% if messages %}
+    {% for message in messages %}
+        <div {% if message.tags %} class="text-{{ message.tags }}" {% endif %}>
+            {{ message }}
+        </div>
+
+    {% endfor %}
+{% endif %}
+
+               
+                
+            </div>
+        </div>
+    </div>
+    <!-- Banner Ends Here -->
+  
+<pre>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+</pre>
+
+{% endblock %}
+
