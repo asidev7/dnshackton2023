@@ -32,8 +32,9 @@
     <br>
                         
                     </li>
-                   <div class="text-center bg-light p-4"> {% if messages %}
+      {% if messages %}
     {% for message in messages %}
+    <div class="text-center bg-light p-4">
         <div {% if message.tags %} class="text-{{ message.tags }}" {% endif %}>
             {{ message }}
         </div>

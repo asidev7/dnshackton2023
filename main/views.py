@@ -19,13 +19,13 @@ def home(request):
             elif not (nom_domaine.endswith('.benin') or nom_domaine.endswith('.cotonou')):
                 # Le nom de domaine ne se termine pas par .benin ou .cotonou
                 messages.warning(request, 'Le nom de domaine ne se termine pas par .benin ou .cotonou')
-                return render('main/home.html', nom_domaine=nom_domaine)
+                return render(request,'main/home.html', {'nom_domaine':nom_domaine})
             else:
                 # Le nom de domaine est disponible
                 
                 messages.success(request, f'Le nom de domaine "{nom_domaine}" est disponible')
+                return render(request,'main/reserver_domaine.html', {'nom_domaine':nom_domaine, 'form':form})
 
-            return redirect(reserver_domaine)
     else:
         form = DomaineDisponibiliteForm()
 
