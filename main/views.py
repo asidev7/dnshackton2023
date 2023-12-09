@@ -24,34 +24,12 @@ def home(request):
                 # Le nom de domaine est disponible
                 
                 messages.success(request, f'Le nom de domaine "{nom_domaine}" est disponible')
-                return render(request,'main/reserver_domaine.html', {'nom_domaine':nom_domaine, 'form':form})
+                return render(request,'main/home.html', {'nom_domaine':nom_domaine, 'form':form})
 
     else:
         form = DomaineDisponibiliteForm()
 
     return render(request, 'main/home.html', {'form': form})
-
-def calculate_domain_price(domain_info):
-    # Add your logic to calculate the domain price here
-    # This is just a placeholder function, replace it with your actual logic
-    return 50.0  # Replace with the actual price calculation
-
-def reserver_domaine(request):
-    nom_domaine = ""
-    try:
-        domain_info = Domaine.objects.get(nom_domaine=nom_domaine)
-    except Domaine.DoesNotExist:
-        domain_info = None
-
-    if not domain_info:
-        return render(request, 'main/home.html', {'nom_domaine': nom_domaine})
-
-    # You can add more logic to calculate the price based on your requirements
-    price = calculate_domain_price(domain_info)
-
-    
-    return render(request, 'main/reserver_domaine.html', {'nom_domaine': nom_domaine, 'price': price, 'reservation_form': reservation_form})
-
 
 
 def liste_domaine(request):
